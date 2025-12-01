@@ -1,0 +1,17 @@
+{
+  "Home": {
+    "title": "홈",
+    "subtitle": "다국어 + 이미지 게시판"
+  },
+  "Nav": {
+    "home": "홈",
+    "posts": "게시글",
+    "login": "로그인",
+    "logout": "로그아웃"
+  },
+  "Common": {
+    "language": "언어",
+    "loading": "로딩 중...",
+    "error": "문제가 발생했습니다"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Home": {
+    "title": "Home",
+    "subtitle": "Multilingual + Image Board"
+  },
+  "Nav": {
+    "home": "Home",
+    "posts": "Posts",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "Common": {
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "Something went wrong"
+  }
+}
