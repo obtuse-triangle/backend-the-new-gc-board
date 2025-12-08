@@ -1,7 +1,10 @@
 {
   "Home": {
     "title": "Home",
-    "subtitle": "Multilingual + Image Board"
+    "subtitle": "Multilingual + Image Board",
+    "headline": "Featured images",
+    "cta": "View posts",
+    "empty": "No posts yet"
   },
   "Nav": {
     "home": "Home",
@@ -13,5 +16,31 @@
     "language": "Language",
     "loading": "Loading...",
     "error": "Something went wrong"
+  },
+  "Auth": {
+    "Login": {
+      "title": "Sign in",
+      "subtitle": "Access your account to create and manage posts.",
+      "identifier": "Email or Username",
+      "password": "Password",
+      "submit": "Sign in",
+      "switch": "Need an account? Register"
+    },
+    "Register": {
+      "title": "Create account",
+      "subtitle": "Join the board to share images and posts.",
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Register",
+      "switch": "Already have an account? Sign in"
+    },
+    "Errors": {
+      "required": "Required",
+      "invalidEmail": "Enter a valid email",
+      "failed": "Sign-in failed. Check your credentials.",
+      "registrationFailed": "Registration failed. Please try again.",
+      "unknown": "Something went wrong. Please retry."
+    }
   }
 }

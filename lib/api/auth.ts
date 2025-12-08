@@ -1,7 +1,14 @@
 import { apiFetch } from "./client";
+import { User } from "../../types/user";
 
 export interface LoginResult {
   jwt: string;
+  user: User;
+}
+
+export interface RegisterResult {
+  jwt: string;
+  user: User;
 }
 
 export async function login(identifier: string, password: string) {
@@ -12,7 +19,7 @@ export async function login(identifier: string, password: string) {
 }
 
 export async function register(username: string, email: string, password: string) {
-  return apiFetch(`/api/auth/local/register`, {
+  return apiFetch<RegisterResult>(`/api/auth/local/register`, {
     method: "POST",
     body: { username, email, password },
   });

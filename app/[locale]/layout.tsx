@@ -3,6 +3,8 @@ import { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { defaultLocale, getMessages, locales, isLocale, type Locale } from "../../i18n";
+import { SessionProvider } from "../../components/SessionProvider";
+import GNB from "../../components/layout/GNB";
 import "../globals.css";
 
 export const dynamic = "force-dynamic";
@@ -42,7 +44,12 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
+      <SessionProvider>
+        <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-zinc-950 dark:text-gray-50">
+          <GNB />
+          <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
+        </div>
+      </SessionProvider>
     </NextIntlClientProvider>
   );
 }

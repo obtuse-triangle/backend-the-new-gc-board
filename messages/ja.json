@@ -1,7 +1,10 @@
 {
   "Home": {
     "title": "ホーム",
-    "subtitle": "多言語 + 画像掲示板"
+    "subtitle": "多言語 + 画像掲示板",
+    "headline": "注目の画像",
+    "cta": "投稿をみる",
+    "empty": "まだ投稿がありません"
   },
   "Nav": {
     "home": "ホーム",
@@ -13,5 +16,31 @@
     "language": "言語",
     "loading": "読み込み中...",
     "error": "エラーが発生しました"
+  },
+  "Auth": {
+    "Login": {
+      "title": "ログイン",
+      "subtitle": "アカウントにサインインして投稿を管理。",
+      "identifier": "メールまたはユーザー名",
+      "password": "パスワード",
+      "submit": "ログイン",
+      "switch": "アカウントがないですか？ 新規登録"
+    },
+    "Register": {
+      "title": "新規登録",
+      "subtitle": "画像掲示板に参加しましょう。",
+      "username": "ユーザー名",
+      "email": "メール",
+      "password": "パスワード",
+      "submit": "登録",
+      "switch": "すでにアカウントがありますか？ ログイン"
+    },
+    "Errors": {
+      "required": "必須項目です",
+      "invalidEmail": "有効なメールを入力してください",
+      "failed": "ログインに失敗しました。入力内容を確認してください。",
+      "registrationFailed": "登録に失敗しました。もう一度お試しください。",
+      "unknown": "問題が発生しました。再度お試しください。"
+    }
   }
 }

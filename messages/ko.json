@@ -1,7 +1,10 @@
 {
   "Home": {
     "title": "홈",
-    "subtitle": "다국어 + 이미지 게시판"
+    "subtitle": "다국어 + 이미지 게시판",
+    "headline": "추천 이미지",
+    "cta": "게시글 보러가기",
+    "empty": "아직 게시글이 없습니다"
   },
   "Nav": {
     "home": "홈",
@@ -13,5 +16,31 @@
     "language": "언어",
     "loading": "로딩 중...",
     "error": "문제가 발생했습니다"
+  },
+  "Auth": {
+    "Login": {
+      "title": "로그인",
+      "subtitle": "계정에 로그인하고 게시글을 관리하세요.",
+      "identifier": "이메일 또는 사용자명",
+      "password": "비밀번호",
+      "submit": "로그인",
+      "switch": "계정이 없나요? 회원가입"
+    },
+    "Register": {
+      "title": "회원가입",
+      "subtitle": "이미지 게시판에 참여해보세요.",
+      "username": "사용자명",
+      "email": "이메일",
+      "password": "비밀번호",
+      "submit": "회원가입",
+      "switch": "이미 계정이 있나요? 로그인"
+    },
+    "Errors": {
+      "required": "필수 입력입니다",
+      "invalidEmail": "올바른 이메일을 입력하세요",
+      "failed": "로그인에 실패했습니다. 정보를 확인하세요.",
+      "registrationFailed": "회원가입에 실패했습니다. 다시 시도해주세요.",
+      "unknown": "문제가 발생했습니다. 다시 시도해주세요."
+    }
   }
 }
