@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { defaultLocale, getMessages, locales, type Locale } from "../../i18n";
+import { defaultLocale, getMessages, locales, isLocale, type Locale } from "../../i18n";
 import "../globals.css";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams(): { locale: Locale }[] {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params: paramsPromise }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
-  const params = await paramsPromise;
-  const { locale } = params;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale = (isLocale(rawLocale) ? rawLocale : defaultLocale) as Locale;
   const t = await getTranslations({ locale, namespace: "Home" });
   return {
     title: t("title"),
@@ -26,13 +26,13 @@ export async function generateMetadata({ params: paramsPromise }: { params: Prom
 
 export default async function LocaleLayout({
   children,
-  params: paramsPromise,
+  params,
 }: {
   children: ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const params = await paramsPromise;
-  const locale = params.locale || defaultLocale;
+  const { locale: rawLocale } = await params;
+  const locale = (isLocale(rawLocale) ? rawLocale : defaultLocale) as Locale;
   setRequestLocale(locale);
   const messages = await getMessages(locale);
 
