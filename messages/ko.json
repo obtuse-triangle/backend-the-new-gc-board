@@ -42,5 +42,43 @@
       "registrationFailed": "회원가입에 실패했습니다. 다시 시도해주세요.",
       "unknown": "문제가 발생했습니다. 다시 시도해주세요."
     }
+  },
+  "Posts": {
+    "title": "게시글",
+    "subtitle": "최신 공유 이미지",
+    "new": "새 글 쓰기",
+    "empty": "아직 게시글이 없습니다. 첫 글을 올려보세요.",
+    "view": "보기",
+    "edit": "수정",
+    "back": "뒤로",
+    "createTitle": "게시글 작성",
+    "editTitle": "게시글 수정",
+    "authRequired": "게시글을 작성하거나 수정하려면 로그인하세요.",
+    "featured": "대표 이미지",
+    "details": "상세 내용",
+    "created": "작성일",
+    "updated": "수정일",
+    "locale": "로케일",
+    "noImage": "이미지가 없습니다",
+    "gallery": "갤러리 보기"
+  },
+  "PostForm": {
+    "title": "제목",
+    "content": "내용",
+    "images": "이미지",
+    "uploadHint": "이미지를 드래그앤드롭하거나 클릭해 업로드하세요. 첫 번째 이미지가 커버로 사용됩니다.",
+    "submitCreate": "게시글 발행",
+    "submitUpdate": "게시글 업데이트",
+    "saving": "저장 중...",
+    "remove": "삭제",
+    "existing": "기존 이미지",
+    "new": "새로 업로드",
+    "processing": "이미지 처리 중...",
+    "validation": {
+      "required": "필수 입력입니다",
+      "images": "이미지를 최소 1장 추가하세요"
+    },
+    "unknownError": "문제가 발생했습니다. 다시 시도해주세요."
+    }
   }
 }

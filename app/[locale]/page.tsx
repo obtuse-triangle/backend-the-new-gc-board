@@ -7,7 +7,9 @@ import type { StrapiMedia } from "../../types/strapi";
 import type { PostWithLocalizations } from "../../types/post";
 
 type StrapiPostShape = PostWithLocalizations & {
+  documentId?: string;
   attributes?: {
+    documentId?: string;
     id?: number;
     title?: string;
     image?:
@@ -71,7 +73,7 @@ export default async function HomeLocalePage({ params }: { params: Promise<{ loc
         resolveMediaUrl(mainImage?.formats?.medium || null) ||
         resolveMediaUrl(mainImage);
       if (!url) return null;
-      const id = post.id ?? post?.attributes?.id;
+      const id = post.documentId || post?.attributes?.documentId;
       if (!id) return null;
       const title = post.title || post?.attributes?.title || "";
       const href = `/${locale}/posts/${id}`;

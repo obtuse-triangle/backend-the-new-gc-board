@@ -42,5 +42,43 @@
       "registrationFailed": "登録に失敗しました。もう一度お試しください。",
       "unknown": "問題が発生しました。再度お試しください。"
     }
+  },
+  "Posts": {
+    "title": "投稿",
+    "subtitle": "最新の共有イメージ",
+    "new": "新規投稿",
+    "empty": "まだ投稿がありません。最初に共有してください。",
+    "view": "見る",
+    "edit": "編集",
+    "back": "戻る",
+    "createTitle": "投稿を作成",
+    "editTitle": "投稿を編集",
+    "authRequired": "投稿の作成・編集にはサインインが必要です。",
+    "featured": "メイン画像",
+    "details": "詳細",
+    "created": "作成日",
+    "updated": "更新日",
+    "locale": "ロケール",
+    "noImage": "画像がありません",
+    "gallery": "ギャラリーを見る"
+  },
+  "PostForm": {
+    "title": "タイトル",
+    "content": "内容",
+    "images": "画像",
+    "uploadHint": "画像をドラッグ＆ドロップするかクリックしてアップロード。最初の画像がカバーになります。",
+    "submitCreate": "投稿を公開",
+    "submitUpdate": "投稿を更新",
+    "saving": "保存中...",
+    "remove": "削除",
+    "existing": "既存の画像",
+    "new": "新しいアップロード",
+    "processing": "画像を処理中...",
+    "validation": {
+      "required": "必須です",
+      "images": "画像を1枚以上追加してください"
+    },
+    "unknownError": "問題が発生しました。もう一度お試しください。"
+    }
   }
 }

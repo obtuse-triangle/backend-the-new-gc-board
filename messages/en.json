@@ -42,5 +42,43 @@
       "registrationFailed": "Registration failed. Please try again.",
       "unknown": "Something went wrong. Please retry."
     }
+  },
+  "Posts": {
+    "title": "Posts",
+    "subtitle": "Latest shared images",
+    "new": "New post",
+    "empty": "No posts yet. Be the first to share.",
+    "view": "View",
+    "edit": "Edit",
+    "back": "Back",
+    "createTitle": "Create a post",
+    "editTitle": "Edit post",
+    "authRequired": "Sign in to create or edit posts.",
+    "featured": "Featured image",
+    "details": "Details",
+    "created": "Created",
+    "updated": "Updated",
+    "locale": "Locale",
+    "noImage": "No image available",
+    "gallery": "View gallery"
+  },
+  "PostForm": {
+    "title": "Title",
+    "content": "Content",
+    "images": "Images",
+    "uploadHint": "Drag & drop images or click to upload. The first image becomes the cover.",
+    "submitCreate": "Publish post",
+    "submitUpdate": "Update post",
+    "saving": "Saving...",
+    "remove": "Remove",
+    "existing": "Existing images",
+    "new": "New uploads",
+    "processing": "Processing images...",
+    "validation": {
+      "required": "Required",
+      "images": "At least one image is required"
+    },
+    "unknownError": "Something went wrong. Please try again."
+    }
   }
 }
