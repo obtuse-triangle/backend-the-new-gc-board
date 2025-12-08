@@ -7,9 +7,10 @@ export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
 }
 
-export async function getMessages(locale: Locale) {
+export async function getMessages(locale: string | Locale) {
+  const safeLocale = isLocale(locale) ? locale : "en";
   try {
-    switch (locale) {
+    switch (safeLocale) {
       case "ko":
         return (await import("./messages/ko.json")).default;
       case "ja":
