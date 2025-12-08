@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { defaultLocale, getMessages, locales, type Locale } from "../../i18n";
 import "../globals.css";
 
@@ -11,7 +11,8 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const params = await paramsPromise;
   const { locale } = params;
   const t = await getTranslations({ locale, namespace: "Home" });
   return {
@@ -25,13 +26,14 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
 
 export default async function LocaleLayout({
   children,
-  params,
+  params: paramsPromise,
 }: {
   children: ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }) {
+  const params = await paramsPromise;
   const locale = params.locale || defaultLocale;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const messages = await getMessages(locale);
 
   return (
