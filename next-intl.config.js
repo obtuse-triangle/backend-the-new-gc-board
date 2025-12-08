@@ -14,7 +14,7 @@ module.exports = async (request) => {
   // NextIntlRequest에서 locale 추출
   const locale = request.locale || "ko";
   const messages = await getMessages(locale);
-  
+
   return {
     locale,
     messages,

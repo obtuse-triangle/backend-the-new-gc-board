@@ -2,11 +2,7 @@ import { getTranslations } from "next-intl/server";
 import LanguageSwitcher from "../../components/layout/LanguageSwitcher";
 import { defaultLocale, isLocale, type Locale } from "../../i18n";
 
-export default async function HomeLocalePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function HomeLocalePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: rawLocale } = await params;
   const locale = (isLocale(rawLocale) ? rawLocale : defaultLocale) as Locale;
   const t = await getTranslations({ locale, namespace: "Home" });
