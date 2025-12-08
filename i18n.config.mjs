@@ -1,4 +1,4 @@
 module.exports = {
-  defaultLocale: 'ko',
-  locales: ['ko', 'en', 'ja'],
+  defaultLocale: "ko",
+  locales: ["ko", "en", "ja"],
 };
