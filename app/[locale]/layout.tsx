@@ -7,7 +7,7 @@ import "../globals.css";
 
 export const dynamic = "force-static";
 
-export function generateStaticParams() {
+export function generateStaticParams(): { locale: Locale }[] {
   return locales.map((locale) => ({ locale }));
 }
 
