@@ -60,7 +60,12 @@
     "updated": "更新日",
     "locale": "ロケール",
     "noImage": "画像がありません",
-    "gallery": "ギャラリーを見る"
+    "gallery": "ギャラリーを見る",
+    "deleteButton": "投稿を削除",
+    "deleting": "削除中...",
+    "deleteConfirm": "この投稿を本当に削除しますか？",
+    "deleteErrorAuth": "権限がありません。もう一度ログインしてください。",
+    "deleteErrorFailed": "削除に失敗しました。もう一度お試しください。"
   },
   "PostForm": {
     "title": "タイトル",

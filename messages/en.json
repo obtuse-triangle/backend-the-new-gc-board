@@ -60,7 +60,12 @@
     "updated": "Updated",
     "locale": "Locale",
     "noImage": "No image available",
-    "gallery": "View gallery"
+    "gallery": "View gallery",
+    "deleteButton": "Delete post",
+    "deleting": "Deleting...",
+    "deleteConfirm": "Are you sure you want to delete this post?",
+    "deleteErrorAuth": "You do not have permission. Please sign in again.",
+    "deleteErrorFailed": "Failed to delete. Please try again."
   },
   "PostForm": {
     "title": "Title",
