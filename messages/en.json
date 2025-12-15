@@ -84,6 +84,30 @@
       "images": "At least one image is required"
     },
     "unknownError": "Something went wrong. Please try again."
-    }
+  },
+  "Comments": {
+    "title": "Comments",
+    "subtitle": "Share your thoughts",
+    "placeholder": "Write a comment...",
+    "signinRequired": "Sign in to comment.",
+    "hint": "Be respectful and keep it relevant.",
+    "submit": "Post comment",
+    "submitting": "Posting...",
+    "loading": "Loading comments...",
+    "empty": "No comments yet. Be the first to reply.",
+    "loadMore": "Load more",
+    "loadError": "Failed to load comments.",
+    "submitError": "Failed to submit. Please try again.",
+    "contentRequired": "Comment cannot be empty.",
+    "deleted": "Deleted comment",
+    "author": "Author",
+    "anonymous": "Anonymous",
+    "reply": "Reply",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "updateError": "Failed to update. Please try again.",
+    "deleteError": "Failed to delete. Please try again."
   }
 }
