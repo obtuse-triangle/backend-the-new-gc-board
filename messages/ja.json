@@ -84,6 +84,30 @@
       "images": "画像を1枚以上追加してください"
     },
     "unknownError": "問題が発生しました。もう一度お試しください。"
-    }
+  },
+  "Comments": {
+    "title": "コメント",
+    "subtitle": "感想を共有しましょう",
+    "placeholder": "コメントを書く...",
+    "signinRequired": "コメントするにはログインが必要です。",
+    "hint": "丁寧な言葉でお願いします。",
+    "submit": "コメント投稿",
+    "submitting": "投稿中...",
+    "loading": "コメントを読み込み中...",
+    "empty": "まだコメントがありません。最初のコメントを残してください。",
+    "loadMore": "もっと見る",
+    "loadError": "コメントの読み込みに失敗しました。",
+    "submitError": "投稿に失敗しました。もう一度お試しください。",
+    "contentRequired": "コメント内容を入力してください。",
+    "deleted": "削除されたコメント",
+    "author": "投稿者",
+    "anonymous": "匿名",
+    "reply": "返信",
+    "edit": "編集",
+    "delete": "削除",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "updateError": "更新に失敗しました。もう一度お試しください。",
+    "deleteError": "削除に失敗しました。もう一度お試しください。"
   }
 }
