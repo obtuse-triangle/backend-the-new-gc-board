@@ -84,6 +84,30 @@
       "images": "이미지를 최소 1장 추가하세요"
     },
     "unknownError": "문제가 발생했습니다. 다시 시도해주세요."
-    }
+  },
+  "Comments": {
+    "title": "댓글",
+    "subtitle": "생각을 남겨보세요",
+    "placeholder": "댓글을 입력하세요...",
+    "signinRequired": "로그인 후 댓글을 작성할 수 있습니다.",
+    "hint": "서로를 존중하며 대화를 나눠요.",
+    "submit": "댓글 등록",
+    "submitting": "등록 중...",
+    "loading": "댓글을 불러오는 중...",
+    "empty": "아직 댓글이 없습니다. 첫 댓글을 남겨보세요.",
+    "loadMore": "더 보기",
+    "loadError": "댓글을 불러오지 못했습니다.",
+    "submitError": "댓글 등록에 실패했습니다. 다시 시도해주세요.",
+    "contentRequired": "댓글 내용을 입력해주세요.",
+    "deleted": "삭제된 댓글",
+    "author": "작성자",
+    "anonymous": "익명",
+    "reply": "답글",
+    "edit": "수정",
+    "delete": "삭제",
+    "cancel": "취소",
+    "save": "저장",
+    "updateError": "수정에 실패했습니다. 다시 시도해주세요.",
+    "deleteError": "삭제에 실패했습니다. 다시 시도해주세요."
   }
 }
