@@ -33,13 +33,12 @@ export function PostForm({ locale, mode, post, authToken }: PostFormProps) {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
-  const [existingImages, setExistingImages] = useState<ExistingImage[]>(() => (post?.images || []).slice(0, 1));
+  const [existingImages, setExistingImages] = useState<ExistingImage[]>(() =>
+    (post?.images || []).slice(0, 1)
+  );
   const [pendingFiles, setPendingFiles] = useState<File[]>([]);
 
-  const formSchema = useMemo(
-    () => schema({ required: tForm("validation.required") }),
-    [tForm],
-  );
+  const formSchema = useMemo(() => schema({ required: tForm("validation.required") }), [tForm]);
 
   const {
     register,
@@ -72,7 +71,9 @@ export function PostForm({ locale, mode, post, authToken }: PostFormProps) {
           : [];
 
         const existingId = existingImages.find((img) => typeof img.id === "number")?.id;
-        const imageIds = [existingId, uploadedIds[0]].filter((id): id is number => typeof id === "number");
+        const imageIds = [existingId, uploadedIds[0]].filter(
+          (id): id is number => typeof id === "number"
+        );
 
         const payload = { ...values, locale: post?.locale || locale, imageIds };
         const result: StrapiSingleResponse<PostWithLocalizations> =
@@ -102,7 +103,9 @@ export function PostForm({ locale, mode, post, authToken }: PostFormProps) {
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-800 dark:text-gray-100">{tForm("title")}</label>
+        <label className="block text-sm font-medium text-gray-800 dark:text-gray-100">
+          {tForm("title")}
+        </label>
         <input
           type="text"
           className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-gray-50"
@@ -112,7 +115,9 @@ export function PostForm({ locale, mode, post, authToken }: PostFormProps) {
       </div>
 
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-800 dark:text-gray-100">{tForm("content")}</label>
+        <label className="block text-sm font-medium text-gray-800 dark:text-gray-100">
+          {tForm("content")}
+        </label>
         <textarea
           rows={6}
           className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-gray-50"
@@ -125,8 +130,12 @@ export function PostForm({ locale, mode, post, authToken }: PostFormProps) {
         existingImages={existingImages}
         pendingFiles={pendingFiles}
         onAddFiles={(files) => setPendingFiles(files.slice(0, 1))}
-        onRemoveExisting={(url) => setExistingImages((prev) => prev.filter((img) => img.url !== url))}
-        onRemovePending={(fileName) => setPendingFiles((prev) => prev.filter((f) => f.name !== fileName))}
+        onRemoveExisting={(url) =>
+          setExistingImages((prev) => prev.filter((img) => img.url !== url))
+        }
+        onRemovePending={(fileName) =>
+          setPendingFiles((prev) => prev.filter((f) => f.name !== fileName))
+        }
         disabled={isSubmitting || isPending}
         hint={tForm("uploadHint")}
         title={tForm("images")}

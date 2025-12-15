@@ -27,7 +27,7 @@ export function RegisterForm() {
 
   const schema = useMemo(
     () => formSchema({ required: tErrors("required"), invalidEmail: tErrors("invalidEmail") }),
-    [tErrors],
+    [tErrors]
   );
 
   const {

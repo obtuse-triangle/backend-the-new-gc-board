@@ -48,7 +48,9 @@ export function HeroSlider({ slides, ctaLabel }: { slides: HeroSlide[]; ctaLabel
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent" />
         </div>
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-          <p className="text-sm uppercase tracking-[0.2em] text-gray-300">{active + 1} / {safeSlides.length}</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-gray-300">
+            {active + 1} / {safeSlides.length}
+          </p>
           <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">{current.title}</h2>
           <div className="mt-4 flex items-center gap-3">
             <Link
@@ -64,7 +66,7 @@ export function HeroSlider({ slides, ctaLabel }: { slides: HeroSlide[]; ctaLabel
                   aria-label={`Go to slide ${idx + 1}`}
                   className={classNames(
                     "h-2 w-2 rounded-full border border-white/60 transition",
-                    idx === active ? "bg-white" : "bg-white/20 hover:bg-white/40",
+                    idx === active ? "bg-white" : "bg-white/20 hover:bg-white/40"
                   )}
                   onClick={() => setActive(idx)}
                 />

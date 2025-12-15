@@ -9,7 +9,11 @@ import { normalizePost } from "../../../../../lib/posts/normalize";
 import PostForm from "../../../../../components/posts/PostForm";
 import DeletePostButton from "../../../../../components/posts/DeletePostButton";
 
-export default async function EditPostPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
+export default async function EditPostPage({
+  params,
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}) {
   const { locale: rawLocale, id } = await params;
   const locale = (isLocale(rawLocale) ? rawLocale : defaultLocale) as Locale;
   const t = await getTranslations({ locale, namespace: "Posts" });
@@ -23,7 +27,9 @@ export default async function EditPostPage({ params }: { params: Promise<{ local
     <main className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">{t("edit")}</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+            {t("edit")}
+          </p>
           <h1 className="text-3xl font-bold sm:text-4xl">{t("editTitle")}</h1>
         </div>
         <Link

@@ -28,7 +28,7 @@ export function ImageGallery({
   const [open, setOpen] = useState(false);
   const slides = useMemo(
     () => images.map((img) => ({ src: resolveUrl(img, "large") || resolveUrl(img) })),
-    [images],
+    [images]
   );
 
   if (!images.length) return null;
@@ -77,7 +77,13 @@ export function ImageGallery({
                 onClick={() => setOpen(true)}
                 className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
               >
-                <Image src={url} alt={img.alt || title || `Image ${idx + 2}`} width={600} height={400} className="h-32 w-full object-cover" />
+                <Image
+                  src={url}
+                  alt={img.alt || title || `Image ${idx + 2}`}
+                  width={600}
+                  height={400}
+                  className="h-32 w-full object-cover"
+                />
                 <div className="absolute inset-0 bg-black/0 transition duration-200 group-hover:bg-black/30" />
               </button>
             );
@@ -85,7 +91,9 @@ export function ImageGallery({
         </div>
       )}
 
-      {open && gallerySlides.length > 0 && <Lightbox open={open} close={() => setOpen(false)} slides={gallerySlides} />}
+      {open && gallerySlides.length > 0 && (
+        <Lightbox open={open} close={() => setOpen(false)} slides={gallerySlides} />
+      )}
     </div>
   );
 }

@@ -34,7 +34,9 @@ export async function apiFetch<T = unknown>(path: string, options: ApiOptions = 
     process.env.STRAPI_API_TOKEN &&
     !(headers as Record<string, string>)["Authorization"]
   ) {
-    (headers as Record<string, string>)["Authorization"] = `Bearer ${process.env.STRAPI_API_TOKEN.trim()}`;
+    (headers as Record<string, string>)[
+      "Authorization"
+    ] = `Bearer ${process.env.STRAPI_API_TOKEN.trim()}`;
   }
 
   const res = await fetch(url, {

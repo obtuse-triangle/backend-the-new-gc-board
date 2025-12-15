@@ -22,7 +22,9 @@ export default async function PostsPage({ params }: { params: Promise<{ locale: 
     <main className="space-y-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">{t("subtitle")}</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+            {t("subtitle")}
+          </p>
           <h1 className="text-3xl font-bold sm:text-4xl">{t("title")}</h1>
         </div>
         <Link
@@ -46,9 +48,7 @@ export default async function PostsPage({ params }: { params: Promise<{ locale: 
         </div>
       )}
 
-      {!session && (
-        <p className="text-sm text-gray-600 dark:text-gray-300">{t("authRequired")}</p>
-      )}
+      {!session && <p className="text-sm text-gray-600 dark:text-gray-300">{t("authRequired")}</p>}
     </main>
   );
 }

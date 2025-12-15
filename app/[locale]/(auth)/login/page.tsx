@@ -18,7 +18,10 @@ export default async function LoginPage({ params }: { params: Promise<{ locale: 
       <LoginForm />
 
       <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-        <Link href={`/${locale}/register`} className="font-semibold text-black underline dark:text-white">
+        <Link
+          href={`/${locale}/register`}
+          className="font-semibold text-black underline dark:text-white"
+        >
           {tLogin("switch")}
         </Link>
       </p>

@@ -67,7 +67,7 @@ export function ImageUploader({
         setIsCompressing(false);
       }
     },
-    [disabled, onAddFiles],
+    [disabled, onAddFiles]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -94,11 +94,22 @@ export function ImageUploader({
 
       {existingImages.length > 0 && (
         <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">{existingLabel}</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+            {existingLabel}
+          </p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {existingImages.slice(0, 1).map((img) => (
-              <div key={img.url} className="relative overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
-                <Image src={img.url} alt={img.alt || "Existing image"} width={320} height={220} className="h-32 w-full object-cover" />
+              <div
+                key={img.url}
+                className="relative overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-zinc-800 dark:bg-zinc-900"
+              >
+                <Image
+                  src={img.url}
+                  alt={img.alt || "Existing image"}
+                  width={320}
+                  height={220}
+                  className="h-32 w-full object-cover"
+                />
                 <button
                   type="button"
                   onClick={() => onRemoveExisting(img.url)}
@@ -115,11 +126,22 @@ export function ImageUploader({
 
       {pendingFiles.length > 0 && (
         <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">{newLabel}</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+            {newLabel}
+          </p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {previews.map((preview) => (
-              <div key={preview.url} className="relative overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
-                <Image src={preview.url} alt={preview.file.name} width={320} height={220} className="h-32 w-full object-cover" />
+              <div
+                key={preview.url}
+                className="relative overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-zinc-800 dark:bg-zinc-900"
+              >
+                <Image
+                  src={preview.url}
+                  alt={preview.file.name}
+                  width={320}
+                  height={220}
+                  className="h-32 w-full object-cover"
+                />
                 <button
                   type="button"
                   onClick={() => onRemovePending(preview.file.name)}

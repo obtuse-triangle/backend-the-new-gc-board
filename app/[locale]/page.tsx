@@ -27,7 +27,12 @@ function normalizeMedia(candidate: unknown): StrapiMedia | null {
   if (!m) return null;
   if (m.url) return { url: m.url, alternativeText: m.alternativeText, formats: m.formats };
   const maybeAttr = (m as { attributes?: StrapiMedia }).attributes;
-  if (maybeAttr?.url) return { url: maybeAttr.url, alternativeText: maybeAttr.alternativeText, formats: maybeAttr.formats };
+  if (maybeAttr?.url)
+    return {
+      url: maybeAttr.url,
+      alternativeText: maybeAttr.alternativeText,
+      formats: maybeAttr.formats,
+    };
   return null;
 }
 
@@ -37,7 +42,9 @@ function pickImageFromPost(post: StrapiPostShape): StrapiMedia | null {
     normalizeMedia(post.image) ||
     normalizeMedia(post.attributes?.image) ||
     normalizeMedia((post.attributes?.image as { data?: unknown } | undefined)?.data) ||
-    normalizeMedia((post.attributes?.image as { data?: { attributes?: unknown } } | undefined)?.data?.attributes);
+    normalizeMedia(
+      (post.attributes?.image as { data?: { attributes?: unknown } } | undefined)?.data?.attributes
+    );
   if (fromImage) return fromImage;
 
   if (post?.images && Array.isArray(post.images) && post.images.length > 0) return post.images[0];
@@ -46,7 +53,8 @@ function pickImageFromPost(post: StrapiPostShape): StrapiMedia | null {
   const images = post?.attributes?.images?.data;
   if (Array.isArray(images) && images.length > 0) {
     const first = images[0]?.attributes;
-    if (first?.url) return { url: first.url, alternativeText: first.alternativeText, formats: first.formats };
+    if (first?.url)
+      return { url: first.url, alternativeText: first.alternativeText, formats: first.formats };
   }
 
   return null;
@@ -85,7 +93,9 @@ export default async function HomeLocalePage({ params }: { params: Promise<{ loc
   return (
     <main className="space-y-8">
       <div className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">{t("subtitle")}</p>
+        <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+          {t("subtitle")}
+        </p>
         <h1 className="text-3xl font-bold sm:text-4xl">{t("headline")}</h1>
       </div>
 

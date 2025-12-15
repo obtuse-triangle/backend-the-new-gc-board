@@ -27,7 +27,10 @@ export function GNB() {
   return (
     <header className="sticky top-0 z-20 border-b border-gray-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4">
-        <Link href={`/${locale}`} className="text-sm font-semibold tracking-tight text-gray-900 dark:text-gray-50">
+        <Link
+          href={`/${locale}`}
+          className="text-sm font-semibold tracking-tight text-gray-900 dark:text-gray-50"
+        >
           Image Board
         </Link>
 
@@ -42,7 +45,7 @@ export function GNB() {
                   "rounded px-2 py-1 transition",
                   active
                     ? "bg-gray-200 text-gray-900 dark:bg-zinc-800 dark:text-white"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-zinc-800 dark:hover:text-white",
+                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-zinc-800 dark:hover:text-white"
                 )}
               >
                 {link.label}

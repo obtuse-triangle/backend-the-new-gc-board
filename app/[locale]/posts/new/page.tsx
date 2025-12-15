@@ -15,7 +15,9 @@ export default async function NewPostPage({ params }: { params: Promise<{ locale
     <main className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">{t("new")}</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+            {t("new")}
+          </p>
           <h1 className="text-3xl font-bold sm:text-4xl">{t("createTitle")}</h1>
         </div>
         <Link

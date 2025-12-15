@@ -27,27 +27,38 @@ type RawPost = Partial<PostWithLocalizations> & {
   updatedAt?: string;
   image?: unknown;
   images?: unknown;
-  attributes?: (Partial<PostWithLocalizations> & {
-    createdAt?: string;
-    updatedAt?: string;
-    image?: unknown;
-    images?: { data?: Array<{ attributes?: StrapiMedia }> };
-  }) | null;
+  attributes?:
+    | (Partial<PostWithLocalizations> & {
+        createdAt?: string;
+        updatedAt?: string;
+        image?: unknown;
+        images?: { data?: Array<{ attributes?: StrapiMedia }> };
+      })
+    | null;
 };
 
 function normalizeMedia(candidate: unknown): StrapiMedia | null {
   const m = candidate as Partial<StrapiMedia> | undefined | null;
   if (!m) return null;
-  if (m.url) return { url: m.url, alternativeText: m.alternativeText, caption: m.caption, formats: m.formats, width: m.width, height: m.height };
+  if (m.url)
+    return {
+      url: m.url,
+      alternativeText: m.alternativeText,
+      caption: m.caption,
+      formats: m.formats,
+      width: m.width,
+      height: m.height,
+    };
   const maybeAttr = (m as { attributes?: StrapiMedia }).attributes;
-  if (maybeAttr?.url) return {
-    url: maybeAttr.url,
-    alternativeText: maybeAttr.alternativeText,
-    caption: maybeAttr.caption,
-    formats: maybeAttr.formats,
-    width: maybeAttr.width,
-    height: maybeAttr.height,
-  };
+  if (maybeAttr?.url)
+    return {
+      url: maybeAttr.url,
+      alternativeText: maybeAttr.alternativeText,
+      caption: maybeAttr.caption,
+      formats: maybeAttr.formats,
+      width: maybeAttr.width,
+      height: maybeAttr.height,
+    };
   return null;
 }
 
@@ -76,9 +87,10 @@ export function normalizePost(raw: unknown): NormalizedPost | null {
   if (!raw) return null;
 
   // Allow callers to pass Strapi single response objects directly
-  const unwrapped = (raw as { data?: unknown }).data && !Array.isArray((raw as { data?: unknown }).data)
-    ? (raw as { data: unknown }).data
-    : raw;
+  const unwrapped =
+    (raw as { data?: unknown }).data && !Array.isArray((raw as { data?: unknown }).data)
+      ? (raw as { data: unknown }).data
+      : raw;
 
   const data = unwrapped as RawPost;
   const documentId = (data as { documentId?: string }).documentId || data?.attributes?.documentId;
@@ -97,9 +109,16 @@ export function normalizePost(raw: unknown): NormalizedPost | null {
   // Common single image fields
   imageCandidates.push(buildImage(normalizeMedia(data.image)));
   imageCandidates.push(buildImage(normalizeMedia(data?.attributes?.image)));
-  imageCandidates.push(buildImage(normalizeMedia((data?.attributes?.image as { data?: unknown } | undefined)?.data)));
   imageCandidates.push(
-    buildImage(normalizeMedia((data?.attributes?.image as { data?: { attributes?: unknown } } | undefined)?.data?.attributes)),
+    buildImage(normalizeMedia((data?.attributes?.image as { data?: unknown } | undefined)?.data))
+  );
+  imageCandidates.push(
+    buildImage(
+      normalizeMedia(
+        (data?.attributes?.image as { data?: { attributes?: unknown } } | undefined)?.data
+          ?.attributes
+      )
+    )
   );
 
   // Flattened images array

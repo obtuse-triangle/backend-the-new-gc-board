@@ -18,7 +18,10 @@ export default async function RegisterPage({ params }: { params: Promise<{ local
       <RegisterForm />
 
       <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-        <Link href={`/${locale}/login`} className="font-semibold text-black underline dark:text-white">
+        <Link
+          href={`/${locale}/login`}
+          className="font-semibold text-black underline dark:text-white"
+        >
           {tRegister("switch")}
         </Link>
       </p>
