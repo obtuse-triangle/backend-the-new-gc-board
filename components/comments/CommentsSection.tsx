@@ -49,12 +49,7 @@ export default function CommentsSection({
   const pageSize = 10;
 
   const isSoftDeleted = useCallback((comment: Comment) => {
-    return (
-      !!comment &&
-      (comment.deleted === true ||
-        comment.removed === true ||
-        comment.content === SOFT_DELETE_PLACEHOLDER)
-    );
+    return !!comment && (comment.deleted === true || comment.content === SOFT_DELETE_PLACEHOLDER);
   }, []);
 
   const normalizeComment = useCallback((comment: Comment): Comment => {

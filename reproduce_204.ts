@@ -1,9 +1,8 @@
-
 import { apiFetch } from "./lib/api/client";
 
 // Mock fetch to return 204 No Content
 global.fetch = async (url, options) => {
-  console.log(`Fetching ${url} with method ${options.method}`);
+  console.log(`Fetching ${url} with method ${options?.method}`);
   return {
     ok: true,
     status: 204,
