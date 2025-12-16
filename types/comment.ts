@@ -6,5 +6,8 @@ export interface Comment {
   deleted?: boolean;
   postId: number;
   authorId?: number;
+  author?: { id?: number; name?: string; email?: string };
+  threadOf?: number | null;
+  children?: Comment[];
   createdAt?: string;
 }

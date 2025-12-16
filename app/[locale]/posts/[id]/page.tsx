@@ -5,9 +5,11 @@ import { getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../../lib/auth";
 import { getPost } from "../../../../lib/api/posts";
+import { buildArticleRelation } from "../../../../lib/api/comments";
 import { defaultLocale, isLocale, type Locale } from "../../../../i18n";
 import { normalizePost, type NormalizedImage } from "../../../../lib/posts/normalize";
 import ImageGallery from "../../../../components/posts/ImageGallery";
+import CommentsSection from "../../../../components/comments/CommentsSection";
 
 function formatDate(value?: string, locale?: Locale) {
   if (!value) return "";
@@ -58,6 +60,11 @@ export default async function PostDetailPage({
   const postResponse = await getPost(id, locale);
   const post = normalizePost(postResponse);
   if (!post) return notFound();
+
+  // For comments plugin, this environment uses documentId for relation.
+  const relation = buildArticleRelation(post.id);
+  const authToken = (session as { jwt?: string } | null)?.jwt;
+  const currentUserId = (session?.user as { id?: number } | undefined)?.id ?? null;
 
   const cover = post.images[0];
   const heroUrl = resolveHeroUrl(cover);
@@ -140,6 +147,13 @@ export default async function PostDetailPage({
       {galleryImages.length > 0 && (
         <ImageGallery images={galleryImages} title={post.title} ctaLabel={t("gallery")} />
       )}
+
+      <CommentsSection
+        relation={relation}
+        locale={locale}
+        authToken={authToken}
+        currentUserId={currentUserId}
+      />
     </main>
   );
 }
