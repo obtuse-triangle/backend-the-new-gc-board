@@ -14,7 +14,7 @@ export async function apiFetch<T = unknown>(
   useInternalUrl = true
 ): Promise<T> {
   const base = useInternalUrl
-    ? process.env.STRAPI_INTERNAL_URL || ""
+    ? process.env.STRAPI_INTERNAL_URL || process.env.NEXT_PUBLIC_STRAPI_URL
     : process.env.NEXT_PUBLIC_STRAPI_URL || "";
   const url = path.startsWith("http") ? path : `${base}${path}`;
 
