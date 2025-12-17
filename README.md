@@ -144,7 +144,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 🎥 시연 영상
 
-[YouTube 링크]
+https://youtu.be/p9V1lEW2yWE
 
 ---
 
