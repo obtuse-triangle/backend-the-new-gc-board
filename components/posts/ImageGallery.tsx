@@ -9,7 +9,7 @@ import "yet-another-react-lightbox/styles.css";
 const Lightbox = dynamic(() => import("yet-another-react-lightbox"), { ssr: false });
 
 function resolveUrl(image: NormalizedImage, size?: string) {
-  const base = (process.env.NEXT_PUBLIC_STRAPI_URL || "").replace(/\/$/, "");
+  const base = (process.env.STRAPI_INTERNAL_URL || "").replace(/\/$/, "");
   const fromFormat = size && image.formats?.[size]?.url;
   if (fromFormat) return fromFormat.startsWith("http") ? fromFormat : `${base}${fromFormat}`;
   if (image.url) return image.url.startsWith("http") ? image.url : `${base}${image.url}`;

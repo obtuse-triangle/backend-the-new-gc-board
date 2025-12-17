@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../../lib/auth";
 import { getPost } from "../../../../lib/api/posts";
-import { buildArticleRelation } from "../../../../lib/api/comments";
+// import { buildArticleRelation } from "../../../../lib/api/comments";
 import { defaultLocale, isLocale, type Locale } from "../../../../i18n";
 import { normalizePost, type NormalizedImage } from "../../../../lib/posts/normalize";
 import ImageGallery from "../../../../components/posts/ImageGallery";
@@ -19,10 +19,13 @@ function formatDate(value?: string, locale?: Locale) {
     return value;
   }
 }
+function buildArticleRelation(articleDocumentId: string | number) {
+  return `api::article.article:${articleDocumentId}`;
+}
 
 function resolveHeroUrl(image?: NormalizedImage) {
   if (!image) return "";
-  const base = (process.env.NEXT_PUBLIC_STRAPI_URL || "").replace(/\/$/, "");
+  const base = (process.env.STRAPI_INTERNAL_URL || "").replace(/\/$/, "");
   const raw =
     image.formats?.xlarge?.url ||
     image.formats?.large?.url ||

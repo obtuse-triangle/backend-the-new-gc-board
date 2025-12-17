@@ -8,8 +8,14 @@ type ApiOptions = {
   authToken?: string;
 };
 
-export async function apiFetch<T = unknown>(path: string, options: ApiOptions = {}): Promise<T> {
-  const base = process.env.NEXT_PUBLIC_STRAPI_URL || "";
+export async function apiFetch<T = unknown>(
+  path: string,
+  options: ApiOptions = {},
+  useInternalUrl = true
+): Promise<T> {
+  const base = useInternalUrl
+    ? process.env.STRAPI_INTERNAL_URL || ""
+    : process.env.NEXT_PUBLIC_STRAPI_URL || "";
   const url = path.startsWith("http") ? path : `${base}${path}`;
 
   const isFormData = typeof FormData !== "undefined" && options.body instanceof FormData;

@@ -62,7 +62,7 @@ function pickImageFromPost(post: StrapiPostShape): StrapiMedia | null {
 
 function resolveMediaUrl(media: StrapiMedia | null): string | undefined {
   if (!media) return undefined;
-  const base = (process.env.NEXT_PUBLIC_STRAPI_URL || "").replace(/\/$/, "");
+  const base = (process.env.STRAPI_INTERNAL_URL || "").replace(/\/$/, "");
   if (!media.url) return undefined;
   return media.url.startsWith("http") ? media.url : `${base}${media.url}`;
 }
